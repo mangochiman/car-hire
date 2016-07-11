@@ -1,0 +1,13 @@
+.DS_Store
+*.swp
+*.swo
+config/database.yml
+config/settings.yml
+db/schema.rb
+log/
+tmp/
+*~
+nbproject
+Gemfile.lock
+
+
