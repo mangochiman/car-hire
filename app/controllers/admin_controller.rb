@@ -78,4 +78,9 @@ class AdminController < ApplicationController
 
     redirect_to("/admin/contact_us") and return
   end
+
+  def create_gallery
+
+  end
+  
 end
