@@ -14,8 +14,8 @@
 
       <div id="cleditorDiv" class="body collapse in">
         <div class="btn-toolbar"></div>
-        <form action="/admic/create_about_us" method="POST">
-          <textarea id="cleditor" class="form-control"></textarea>
+        <form action="/admin/create_about_us" method="POST">
+          <textarea id="cleditor" class="form-control" name="content"><%= @about_us_page.content rescue '' %></textarea>
 
           <div class="form-actions no-margin-bottom" id="cleditorForm">
             <br />
