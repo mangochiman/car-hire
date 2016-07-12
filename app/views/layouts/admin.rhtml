@@ -7,7 +7,7 @@
   <head>
 
     <meta charset="UTF-8" />
-    <title>BCORE Admin Dashboard Template | Blank Page</title>
+    <title>Bantu Montors - Admin</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
@@ -22,6 +22,24 @@
     <link rel="stylesheet" href="/assets/css/MoneAdmin.css" />
     <link rel="stylesheet" href="/assets/plugins/Font-Awesome/css/font-awesome.css" />
     <!--END GLOBAL STYLES -->
+
+    <!-- PAGE LEVEL STYLES -->
+    <link rel="stylesheet" href="/assets/plugins/Font-Awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/plugins/wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css" />
+    <link rel="stylesheet" href="/assets/css/Markdown.Editor.hack.css" />
+    <link rel="stylesheet" href="/assets/plugins/CLEditor1_4_3/jquery.cleditor.css" />
+    <link rel="stylesheet" href="/assets/css/jquery.cleditor-hack.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap-wysihtml5-hack.css" />
+    <style>
+      ul.wysihtml5-toolbar > li {
+        position: relative;
+      }
+
+
+      .cleditorMain iframe{
+        height: 500px !important;
+      }
+    </style>
 
     <!-- PAGE LEVEL STYLES -->
     <!-- END PAGE LEVEL  STYLES -->
@@ -144,14 +162,19 @@
       </div>
       <!--END PAGE CONTENT -->
 
+      <div style="display: none;"><!-- REMOVING THIS SECTION THE EDITOR WITH A LOT OF TOOLBARS WAS NOT WORKING mangochiman-->
+        <div id="wmd-button-bar" class="btn-toolbar"></div>
+        <textarea class="wmd-input" rows="0" name="description" id="wmd-input">
 
+        </textarea>
+      </div>
     </div>
 
     <!--END MAIN WRAPPER -->
 
     <!-- FOOTER -->
     <div id="footer">
-      <p>&copy;  binarytheme &nbsp;2014 &nbsp;</p>
+      <p>&copy;  mangochiman &nbsp;2016 &nbsp;</p>
     </div>
     <!--END FOOTER -->
     <!-- GLOBAL SCRIPTS -->
@@ -159,6 +182,19 @@
     <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     <!-- END GLOBAL SCRIPTS -->
+
+    <!-- PAGE LEVEL SCRIPTS -->
+    <script src="/assets/plugins/wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+    <script src="/assets/plugins/bootstrap-wysihtml5-hack.js"></script>
+    <script src="/assets/plugins/CLEditor1_4_3/jquery.cleditor.min.js"></script>
+    <script src="/assets/plugins/pagedown/Markdown.Converter.js"></script>
+    <script src="/assets/plugins/pagedown/Markdown.Sanitizer.js"></script>
+    <script src="/assets/plugins/Markdown.Editor-hack.js"></script>
+    <script src="/assets/js/editorInit.js"></script>
+
+    <script>
+      $(function () { formWysiwyg(); });
+    </script>
   </body>
   <!-- END BODY-->
 
