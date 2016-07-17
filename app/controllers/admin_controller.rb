@@ -175,5 +175,24 @@ class AdminController < ApplicationController
 
     redirect_to("/admin/settings") and return
   end
+
+  def company_description
+    @company_description = Page.find_by_page_type('company_description')
+    render :layout => "admin"
+  end
+
+  def create_company_description
+    company_description_page = Page.find_by_page_type('company_description')
+
+    if company_description_page.blank?
+      company_description_page = Page.new()
+      company_description_page.page_type = 'company_description'
+    end
+
+    company_description_page.content = params[:content]
+    company_description_page.save
+
+    redirect_to("/admin/company_description") and return
+  end
   
 end
