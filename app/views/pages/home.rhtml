@@ -52,57 +52,42 @@
   <section id="slider_wrapper" class="under_header slider-wrapper theme-default container">
     <div id="slider" class="nivoSlider">
       <% @media.each do |media| %>
-        <img src="<%= media.path %>" data-thumb="<%= media.path %>" alt="<%= media.alt %>" />
+        <img src='/uploads/<%= "#{media.car_id}-front.png" %>' data-thumb="<%= media.path %>" alt="<%= media.alt %>" title="<%= media.description %>" />
       <% end %>
     </div>
 
   </section>
   <span class="clearfix"></span>
+  <section class="container">
+    <b style="color: green; font-style: italic;">
+    NB: This section is for company's description. Make sure you put in something that should be easily searched by
+    users on google.com
+    </b>
+  </section>
+  <span class="clearfix"></span>
   <section id="three_parags">
     <div class="container">
-      <div class="one_parag span-8">
-        <h2>Toyota Carina</h2>
-        <img src="images/list_icon_03.jpg" class="top" alt="photo"/>
-        <h6>PSD files included</h6>
-        <p>Car Type: <strong>Toyota Carina</strong></p>
-        <p>Capacity: <strong>5 Seater</strong></p>
-        <p>Engine Size: <strong>1.4 cc</strong></p>
-        <p>Status: <strong>Available</strong></p>
-        <div class="p_Button">
-          <a href="#">Book This One</a>
+      <% @media.each do |media| %>
+        <div class="one_parag span-8">
+          <h2><%= media.name %></h2>
+          <img src="/uploads/<%= "#{media.car_id}-thumb.png" %>" class="top" alt="photo"/>
+          <h6><%= media.description %></h6>
+          <p>Car Type: <strong><%= media.name %></strong></p>
+          <p>Capacity: <strong><%= media.seats %></strong></p>
+          <p>Engine Size: <strong><%= media.engine_size %></strong></p>
+          <p>Status: <strong>Available</strong></p>
+          <div class="p_Button">
+            <a href="#">Book This One</a>
+          </div>
         </div>
-      </div>
-      <div class="one_parag span-8">
-        <h2>Toyota Carina</h2>
-        <img src="images/list_icon_03.jpg" class="top" alt="photo"/>
-        <h6>PSD files included</h6>
-        <p>Car Type: <strong>Toyota Carina</strong></p>
-        <p>Capacity: <strong>5 Seater</strong></p>
-        <p>Engine Size: <strong>1.4 cc</strong></p>
-        <p>Status: <strong>Available</strong></p>
-        <div class="p_Button">
-          <a href="#">Book This One</a>
-        </div>
-      </div>
-      <div class="one_parag span-8">
-        <h2>Toyota Carina</h2>
-        <img src="images/list_icon_03.jpg" class="top" alt="photo"/>
-        <h6>PSD files included</h6>
-        <p>Car Type: <strong>Toyota Carina</strong></p>
-        <p>Capacity: <strong>5 Seater</strong></p>
-        <p>Engine Size: <strong>1.4 cc</strong></p>
-        <p>Status: <strong>Available</strong></p>
-        <div class="p_Button">
-          <a href="#">Book This One</a>
-        </div>
-      </div>
+      <% end %>
     </div>
     <span class="clearfix"></span>
   </section>
   <span class="clearfix"></span>
 
   <span class="clearfix"></span>
-  <hr>
+  <hr />
 
   <section id="from_blog" class="container">
 
