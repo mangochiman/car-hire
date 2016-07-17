@@ -79,8 +79,80 @@ class AdminController < ApplicationController
     redirect_to("/admin/contact_us") and return
   end
 
+  def gallery
+    @media = Car.all
+  end
+  
   def create_gallery
+    car_image = params[:car_image]
 
+    File.open(Rails.root.join('public', 'uploads', car_image.original_filename), 'wb') do |file|
+      file.write(car_image.read)
+    end
+    
+    car = Car.new()
+    car.name = params[:car_name]
+    car.engine_size = params[:engine_size]
+    car.seats = params[:total_seats]
+    car.description = params[:description]
+    car.path = "/uploads/#{car_image.original_filename}"
+    car.alt = car_image.original_filename
+    car.save
+    
+    redirect_to("/admin/gallery") and return
+  end
+
+  def settings
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    render :layout => "admin"
+  end
+
+  def create_settings
+    email = Setting.find_by_key('email')
+    office_phone = Setting.find_by_key('office_phone')
+    fax = Setting.find_by_key('fax')
+    postal_address = Setting.find_by_key('postal_address')
+    strengths = Setting.find_by_key('strengths')
+
+    if email.blank?
+      email = Setting.new()
+      email.key = 'email'
+    end
+
+    if office_phone.blank?
+      office_phone = Setting.new()
+      office_phone.key = 'office_phone'
+    end
+
+    if fax.blank?
+      fax = Setting.new()
+      fax.key = 'fax'
+    end
+    if postal_address.blank?
+      postal_address = Setting.new()
+      postal_address.key = 'postal_address'
+    end
+
+    if strengths.blank?
+      strengths = Setting.new()
+      strengths.key = 'strengths'
+    end
+
+    email.value = params[:email]
+    office_phone.value = params[:office_phone]
+    postal_address.value = params[:postal_address]
+    strengths.value = params[:strengths]
+
+    email.save
+    office_phone.save
+    fax.save
+    postal_address.save
+    strengths.save
+
+    redirect_to("/admin/settings") and return
   end
   
 end

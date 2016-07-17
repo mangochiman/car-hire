@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   def home
-    
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
   end
 
   def our_services
