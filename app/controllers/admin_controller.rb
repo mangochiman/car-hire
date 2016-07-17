@@ -1,3 +1,6 @@
+require 'RMagick'
+include Magick
+
 class AdminController < ApplicationController
   def home
     
@@ -98,7 +101,25 @@ class AdminController < ApplicationController
     car.path = "/uploads/#{car_image.original_filename}"
     car.alt = car_image.original_filename
     car.save
+
+    file_path = Rails.root.to_s + '/public' +  car.path
+    front_file_name = "#{car.car_id}-front.png"
+    thumb_file_name = "#{car.car_id}-thumb.png"
+
+    new_front_file_path = Rails.root.to_s + '/public/uploads/' +  front_file_name
+    new_thumb_file_path = Rails.root.to_s + '/public/uploads/' +  thumb_file_name
+
+    Kernel.system "convert #{file_path} -resize 618x246! #{new_front_file_path}" #front Image
+    Kernel.system "convert #{file_path} -resize 228x168! #{new_thumb_file_path}" #Thumbnail Image
     
+    redirect_to("/admin/gallery") and return
+  end
+
+  def delete_media
+    car = Car.find(params[:car_id])
+    file_path = Rails.root.to_s + '/public' +  car.path
+    File.delete(file_path) if File.exist?(file_path)
+    car.delete
     redirect_to("/admin/gallery") and return
   end
 

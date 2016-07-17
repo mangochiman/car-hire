@@ -51,9 +51,9 @@
   <span class="clearfix"></span>
   <section id="slider_wrapper" class="under_header slider-wrapper theme-default container">
     <div id="slider" class="nivoSlider">
-      <img src="images/toystory.jpg" data-thumb="images/toystory.jpg" alt="" />
-      <img src="images/walle.jpg" data-thumb="images/walle.jpg" alt=""  />
-      <img src="images/nemo.jpg" data-thumb="images/nemo.jpg" alt=""  />
+      <% @media.each do |media| %>
+        <img src="<%= media.path %>" data-thumb="<%= media.path %>" alt="<%= media.alt %>" />
+      <% end %>
     </div>
 
   </section>

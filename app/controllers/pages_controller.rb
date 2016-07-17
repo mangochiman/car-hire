@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
     @strengths = Setting.find_by_key('strengths').value rescue ''
     @fax = Setting.find_by_key('fax').value rescue ''
+    @media = Car.all
   end
 
   def our_services
