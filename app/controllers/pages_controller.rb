@@ -70,7 +70,15 @@ class PagesController < ApplicationController
   end
 
   def bookings
-    
+    @selected_car = Car.find(params[:car_id])
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
+    @company_description = Page.find_by_page_type('company_description').content rescue ''
+    @media = Car.find(:all, :conditions => ["car_id != ?", params[:car_id]])
+    render :layout => "main"
   end
   
 end

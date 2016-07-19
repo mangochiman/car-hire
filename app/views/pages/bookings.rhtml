@@ -1,0 +1,59 @@
+<style>
+  form input[type=text] {
+    height: 18px;
+  }
+  form input, form textarea {
+    border: 1px solid;
+  }
+</style>
+
+<br />
+<span class="clearfix"></span>
+<section  class="content" style="text-align: center; height:  540px;" id="three_parags">
+  <img src="/uploads/<%= "#{@selected_car.car_id}-front.png" %>" class="top" alt="photo"/><br />
+  <b>Note: </b><i style="font-size: 10pt; font-weight: bolder; color: red;">This process will be verified manually by calling using the phone number <br />
+    that you will fill below within 24 hrs</i><br /><br />
+  <form action="/pages/create_bookings" method="POST">
+    <table style="width: 90vh; left: 30%; position: relative;">
+      <tr>
+        <td>First Name</td>
+        <td><input type="text" name="first_name" required></input></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><input type="text" name="last_name" required></input></td>
+      </tr>
+      <tr>
+        <td>E-mail</td>
+        <td><input type="email" name="email" required></input></td>
+      </tr>
+      <tr>
+        <td>Phone #</td>
+        <td><input type="phone" name="phone" required></input></td>
+      </tr>
+      <tr>
+        <td>Start Date</td>
+        <td><input type="text" name="start_date" required></input></td>
+      </tr>
+      <tr>
+        <td>End Date</td>
+        <td><input type="text" name="end_date" required></input></td>
+      </tr>
+      <input type="hidden" value="<%= params[:car_id] %>" name="car_id"></input>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="Confirm Booking" ></input>
+        </td>
+      </tr>
+    </table>
+  </form>
+</section><br />
+<section>
+
+
+</section>
+<span class="clearfix"></span>
+
+<hr />
+
+<span class="clearfix"></span>
