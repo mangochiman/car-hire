@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Car Rental</title>
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="nivo-slider/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="nivo-slider/default/nivo-slider.css" type="text/css" media="screen" />
+
+    <style>
+      .p_Button, #wrapper404 ul .home {
+        background-color: #43667b;
+        height: 26px;
+        padding: 8px 15px;
+        width: 129px;
+      }
+
+      .span-8 {
+        width: 300px;
+      }
+
+      #three_parags {
+        border: none;
+      }
+    </style>
+  </head>
+
+  <body>
+  <header>
+    <div class="container">
+      <a href="/">
+        <h1>Bazooka</h1></a>
+      <nav>
+        <ul class="last">
+          <li class="active" id="home">
+            <a href="/">Home</a>
+          </li>
+          <li id="our_services">
+            <a href="/our_services">Our Services</a>
+          </li>
+          <li id="our_mission">
+            <a href="/our_mission">Our Mission</a>
+          </li>
+          <li id="about_us">
+            <a href="/about_us">About Us</a>
+          </li>
+          <li id="contact_us">
+            <a href="/contact_us">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <span class="clearfix"></span>
+  <%= yield %>
+
+  <section id="three_parags">
+    <div class="container">
+      <% @media.each do |media| %>
+        <div class="one_parag span-8">
+          <h2><%= media.name %></h2>
+          <img src="/uploads/<%= "#{media.car_id}-thumb.png" %>" class="top" alt="photo"/>
+          <h6><%= media.description %></h6>
+          <p>Car Type: <strong><%= media.name %></strong></p>
+          <p>Capacity: <strong><%= media.seats %></strong></p>
+          <p>Engine Size: <strong><%= media.engine_size %></strong></p>
+          <p>Status: <strong>Available</strong></p>
+          <div class="p_Button">
+            <a href="#">Book This One</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </section>
+  <span class="clearfix"></span>
+
+  <span class="clearfix"></span>
+  <br /><br />
+  <hr />
+
+  <section id="from_blog" class="container">
+    <div class="part1 span-8">
+      <h2>Why choose us ?</h2>
+      <ul>
+        <li>Sed diam voluptua</li>
+        <li>At vero eos et accusam</li>
+        <li>justo duo dolores et ea rebum</li>
+        <li>Stet clita kasd gubergren</li>
+        <li>rebum. Stet clita kasd</li></ul>
+    </div>
+  </section>
+
+  <span class="clearfix"></span>
+
+  <span class="clearfix"></span>
+  <footer>
+    <div id="top">
+      <div class="container">
+        <div id="footer_logo" class="span-8">logo</div>
+        <div id="social_icons" class="span-8">
+          <h2>Stay connected</h2>
+          <ul>
+            <li>
+              <a href="#"><img src="images/SOCIAL-ICON_03.jpg" width="32" height="32" alt="facebook"></a></li>
+            <li>
+          </ul>
+        </div>
+        <div id="in_touch" class="span-8 last">
+          <h2>Get in touch</h2>
+          <p>
+            <b>email</b> : <%= @email %><br>
+            <b>Tel</b> : <%= @office_phone %> |
+            <b>Fax</b> : <%= @fax %></p>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <span class="container clear">
+	Copyright 2016 all rights reserved
+        <span class="right last">Admin? :
+          <a href="/admin">Login</a></span>
+      </span>
+    </div>
+  </footer>
+  <script type="text/javascript" src="javascripts/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.nivo.slider.js"></script>
+
+</body>
+</html>
