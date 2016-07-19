@@ -23,6 +23,19 @@
       #three_parags {
         border: none;
       }
+
+      .p_Button{
+        background-color: #43667b;
+        height: 26px;
+        padding: 8px 15px;
+        width: 129px;
+        cursor: pointer;
+        color: white;
+      }
+
+      .p_Button:hover{
+        font-style: italic;
+      }
     </style>
   </head>
 
@@ -66,8 +79,8 @@
           <p>Capacity: <strong><%= media.seats %></strong></p>
           <p>Engine Size: <strong><%= media.engine_size %></strong></p>
           <p>Status: <strong>Available</strong></p>
-          <div class="p_Button">
-            <a href="#">Book This One</a>
+          <div class="p_Button" onclick="window.location='/bookings/<%= media.car_id %>'">
+            <span>Book This One</span>
           </div>
         </div>
       <% end %>

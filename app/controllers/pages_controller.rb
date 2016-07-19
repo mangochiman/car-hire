@@ -68,5 +68,9 @@ class PagesController < ApplicationController
     @media = Car.all
     render :layout => "main"
   end
+
+  def bookings
+    
+  end
   
 end
