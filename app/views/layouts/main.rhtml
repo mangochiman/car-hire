@@ -110,7 +110,7 @@
   <span class="clearfix"></span>
   <footer>
     <div id="top">
-      <div class="container">
+      <div class="">
         <div id="footer_logo" class="span-8">logo</div>
         <div id="social_icons" class="span-8">
           <h2>Stay connected</h2>
@@ -120,12 +120,19 @@
             </li>
           </ul>
         </div>
-        <div id="in_touch" class="span-8 last">
+        
+        <div id="in_touch" class="span-8">
           <h2>Get in touch</h2>
           <p>
             <b>email</b> : <%= @email %><br>
             <b>Tel</b> : <%= @office_phone %> |
             <b>Fax</b> : <%= @fax %></p>
+        </div>
+        <div class="span-8 last" id="in_touch ">
+          <h2>Bookings</h2>
+          <p>
+              <a href="/search_bookings">View my Bookings</a>
+          </p>
         </div>
       </div>
     </div>

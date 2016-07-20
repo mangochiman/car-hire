@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.contact_us  '/contact_us',  :controller => 'pages', :action => 'contact_us'
   map.admin  '/admin',  :controller => 'admin', :action => 'home'
   map.bookings '/bookings/:car_id', :controller => 'pages', :action => 'bookings'
+  map.search_bookings '/search_bookings', :controller => 'pages', :action => 'search_bookings'
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action

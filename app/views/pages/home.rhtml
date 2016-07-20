@@ -10,6 +10,9 @@
   </section>
   <span class="clearfix"></span>
   <section class="container"><br />
+    <% if flash[:notice] %>
+    <p style="color: green;"><%= flash[:notice] %></p>
+    <% end %>
     <%= @company_description %>
   </section>
 

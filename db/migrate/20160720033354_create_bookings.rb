@@ -5,6 +5,7 @@ class CreateBookings < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email
+      t.string :secret_code
       t.string :phone
       t.string :start_date
       t.string :end_date

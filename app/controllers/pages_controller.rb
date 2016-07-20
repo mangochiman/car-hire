@@ -94,5 +94,15 @@ class PagesController < ApplicationController
     flash[:notice]= "Thanks for booking with us. We will call you within 24 hrs to confirm your booking"
     redirect_to("/") and return
   end
-  
+
+  def search_bookings
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
+    @company_description = Page.find_by_page_type('company_description').content rescue ''
+    @media = Car.all
+    render :layout => "main"
+  end
 end
