@@ -87,6 +87,7 @@ class PagesController < ApplicationController
     booking.first_name = params[:first_name]
     booking.last_name = params[:last_name]
     booking.email = params[:email]
+    booking.secret_code = params[:secret_code]
     booking.phone = params[:phone]
     booking.start_date = params[:start_date]
     booking.end_date = params[:end_date]
@@ -105,4 +106,23 @@ class PagesController < ApplicationController
     @media = Car.all
     render :layout => "main"
   end
+
+  def search_booking_results
+    email = params[:email]
+    secret_code = params[:secret_code]
+
+    @search_results = Booking.find(:all, :conditions => ["email =? AND secret_code =?",
+        email, secret_code])
+
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
+    @company_description = Page.find_by_page_type('company_description').content rescue ''
+    @media = Car.all
+
+    render :layout => "main"
+  end
+  
 end

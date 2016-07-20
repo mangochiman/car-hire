@@ -1,0 +1,28 @@
+<style>
+  #email, #password {
+    height: 23px;
+  }
+  form input, form textarea {
+    border: 1px solid #f1f1f1;
+  }
+</style>
+<br />
+<span class="clearfix"></span>
+<section  class="content" style="text-align: center;">
+  <%
+  result = 'result'
+  if (@search_results.count == 0 || @search_results.count > 1)
+    result = 'results'
+  end
+%>
+  <h2><%= @search_results.count.to_s + ' ' + result %> found</h2>
+</section><br />
+<section>
+
+
+</section>
+<span class="clearfix"></span>
+
+<hr />
+
+<span class="clearfix"></span>
