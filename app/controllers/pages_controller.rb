@@ -80,5 +80,19 @@ class PagesController < ApplicationController
     @media = Car.find(:all, :conditions => ["car_id != ?", params[:car_id]])
     render :layout => "main"
   end
+
+  def create_bookings
+    booking = Booking.new
+    booking.car_id = params[:car_id]
+    booking.first_name = params[:first_name]
+    booking.last_name = params[:last_name]
+    booking.email = params[:email]
+    booking.phone = params[:phone]
+    booking.start_date = params[:start_date]
+    booking.end_date = params[:end_date]
+    booking.save
+    flash[:notice]= "Thanks for booking with us. We will call you within 24 hrs to confirm your booking"
+    redirect_to("/") and return
+  end
   
 end
