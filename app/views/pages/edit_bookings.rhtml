@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag("metallic") %>
 <style>
   form input[type=text] {
-    
+
   }
   form input, form textarea {
     border: 1px solid;
@@ -10,44 +10,37 @@
 
 <br />
 <span class="clearfix"></span>
-<section  class="content" style="text-align: center; height:  650px;" id="three_parags">
+<section  class="content" style="text-align: center; height:  620px;" id="three_parags">
   <img src="/uploads/<%= "#{@selected_car.car_id}-front.png" %>" class="top" alt="photo"/><br />
   <b>Note: </b><i style="font-size: 10pt; font-weight: bolder; color: red;">This process will be verified manually by calling using the phone number <br />
     that you will fill below within 24 hrs</i><br /><br />
-  <form action="/pages/create_bookings" method="POST">
+  <form action="/pages/process_edit_bookings" method="POST">
     <table style="width: 90vh; left: 30%; position: relative;">
       <tr>
-        <td>First Name</td>
-        <td><input type="text" name="first_name" required></input></td>
-      </tr>
-      <tr>
-        <td>Last Name</td>
-        <td><input type="text" name="last_name" required></input></td>
-      </tr>
-      <tr>
         <td>E-mail</td>
-        <td><input type="email" name="email" required></input></td>
+        <td><input type="email" name="email" value="<%= @booking.email %>" required></input></td>
       </tr>
       <tr>
         <td>Secret Code</td>
-        <td><input type="text" name="secret_code" required></input></td>
+        <td><input type="text" name="secret_code" value="<%= @booking.secret_code %>" required></input></td>
       </tr>
       <tr>
         <td>Phone #</td>
-        <td><input type="phone" name="phone" required></input></td>
+        <td><input type="phone" name="phone" value="<%= @booking.phone %>" required></input></td>
       </tr>
       <tr>
         <td>Start Date</td>
-        <td><input type="text" name="start_date" class="date-picker" required></input></td>
+        <td><input type="text" name="start_date" value="<%= @booking.start_date %>" class="date-picker" required></input></td>
       </tr>
       <tr>
         <td>End Date</td>
-        <td><input type="text" name="end_date" class="date-picker" required></input></td>
+        <td><input type="text" name="end_date" value="<%= @booking.end_date %>" class="date-picker" required></input></td>
       </tr>
-      <input type="hidden" value="<%= params[:car_id] %>" name="car_id"></input>
+      <input type="hidden" value="<%= @selected_car.car_id %>" name="car_id"></input>
+      <input type="hidden" value="<%= @booking_id %>" name="booking_id"></input>
       <tr>
         <td colspan="2">
-          <input type="submit" value="Confirm Booking" ></input>
+          <input type="submit" value="Save Changes" ></input>
         </td>
       </tr>
     </table>

@@ -1,4 +1,14 @@
-<style>
+<script type="text/javascript">
+  function editBooking(bookingID){
+    bookingIDinput = document.getElementById('booking_id');
+    bookingIDinput.value = bookingID;
+
+    editBookingForm = document.getElementById('editBookingForm');
+    editBookingForm.submit();
+  }
+</script>
+
+<style type="text/css">
   #email, #password {
     height: 23px;
   }
@@ -8,7 +18,7 @@
 </style>
 <br />
 <span class="clearfix"></span>
-<section  class="content" style="text-align: center;">
+<section  class="content web-content container" style="text-align: center;">
   <%
   result = 'result'
   if (@search_results.count == 0 || @search_results.count > 1)
@@ -16,11 +26,39 @@
   end
 %>
   <h2><%= @search_results.count.to_s + ' ' + result %> found</h2>
+  <% unless @search_results.blank? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Car Type</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Phone #</th>
+          <th>Email</th>
+          <th colspan="2" style="text-align: center;">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @search_results.each do |result| %>
+          <tr>
+            <td><%= result.car.name %></td>
+            <td><%= result.start_date %></td>
+            <td><%= result.end_date %></td>
+            <td><%= result.phone %></td>
+            <td><%= result.email %></td>
+            <td><button onclick="editBooking('<%= result.bookings_id %>')">Edit</button></td>
+            <td><button>Delete</button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <form action="/edit_bookings" method="POST" style="display: none;" id="editBookingForm">
+      <input type="hidden" value="" id="booking_id" name="booking_id"></input>
+    </form>
+  <% end %>
 </section><br />
-<section>
 
-
-</section>
 <span class="clearfix"></span>
 
 <hr />

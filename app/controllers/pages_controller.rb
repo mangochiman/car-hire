@@ -124,5 +124,33 @@ class PagesController < ApplicationController
 
     render :layout => "main"
   end
-  
+
+  def edit_bookings
+    @booking_id = params[:booking_id]
+    @booking = Booking.find(params[:booking_id])
+    @selected_car = Booking.find(params[:booking_id]).car
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
+    @company_description = Page.find_by_page_type('company_description').content rescue ''
+    @media = Car.find(:all, :conditions => ["car_id != ?", @selected_car.car_id])
+    render :layout => "main"
+  end
+
+  def process_edit_bookings
+    booking = Booking.find(params[:booking_id])
+    booking.car_id = params[:car_id]
+    booking.email = params[:email]
+    booking.secret_code = params[:secret_code]
+    booking.phone = params[:phone]
+    booking.start_date = params[:start_date]
+    booking.end_date = params[:end_date]
+    booking.save
+    
+    flash[:notice] = "You have successfully made your changes"
+    redirect_to("/") and return
+  end
+
 end

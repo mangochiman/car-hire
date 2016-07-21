@@ -41,7 +41,7 @@
         max-width: 100%;
         word-wrap: break-word;
       }
-      
+
     </style>
   </head>
 
@@ -153,5 +153,12 @@
   <script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
   <script type="text/javascript" src="/javascripts/jquery.nivo.slider.js"></script>
 
+  <%= javascript_include_tag("zebra_datepicker") %>
+  <script type="text/javascript">
+    jQuery('.date-picker').Zebra_DatePicker({
+      //view : 'years',
+      //direction: ['<%=  (Date.today.beginning_of_year).strftime("%Y-%m-%d") %>', '<%=  (Date.today.end_of_year).strftime("%Y-%m-%d") %>']
+    });
+  </script>
 </body>
 </html>
