@@ -3,7 +3,7 @@
   <section id="slider_wrapper" class="under_header slider-wrapper theme-default container">
     <div id="slider" class="nivoSlider">
       <% @media.each do |media| %>
-        <img src='/uploads/<%= "#{media.car_id}-front.png" %>' data-thumb="<%= media.path %>" alt="<%= media.alt %>" title="<%= media.description %>" />
+      <a href="/bookings/<%= media.car_id %>"><img src='/uploads/<%= "#{media.car_id}-front.png" %>' data-thumb="<%= media.path %>" alt="<%= media.alt %>" title="<%= media.description %>" /></a>
       <% end %>
     </div>
 
