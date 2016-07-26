@@ -178,7 +178,6 @@ class AdminController < ApplicationController
 
   def company_description
     @company_description = Page.find_by_page_type('company_description')
-    render :layout => "admin"
   end
 
   def create_company_description
@@ -197,7 +196,6 @@ class AdminController < ApplicationController
 
   def damage_and_management_policy
     @damage_and_management_policy_page = Page.find_by_page_type('damage_and_management_policy')
-    render :layout => "main"
   end
 
   def create_damage_and_management_policy
@@ -216,7 +214,6 @@ class AdminController < ApplicationController
 
   def deposit_policy
     @deposit_policy_page = Page.find_by_page_type('deposit_policy')
-    render :layout => "main"
   end
 
   def create_deposit_policy
@@ -235,7 +232,6 @@ class AdminController < ApplicationController
 
   def protection_package_details
     @protection_package_details_page = Page.find_by_page_type('protection_package_details')
-    render :layout => "main"
   end
 
   def create_protection_package_details
@@ -254,7 +250,6 @@ class AdminController < ApplicationController
 
   def security_and_privacy_policy
     @security_and_privacy_policy_page = Page.find_by_page_type('security_and_privacy_policy')
-    render :layout => "main"
   end
 
   def create_security_and_privacy_policy
@@ -273,7 +268,6 @@ class AdminController < ApplicationController
 
   def terms_and_conditions
     @terms_and_conditions_page = Page.find_by_page_type('terms_and_conditions')
-    render :layout => "main"
   end
 
   def create_terms_and_conditions
