@@ -35,12 +35,20 @@
       <div class="text-center">
         <img src="images/logo.png" id="logoimg" alt=" Logo" />
       </div>
-      
+
       <div class="tab-content">
         <div id="login" class="tab-pane active">
+          
           <% if flash[:error] %>
-          <%= flash[:error] %>
+          <div class="col-lg-4" style="left: 34%;">
+            <div class="alert alert-danger alert-dismissable">
+              <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+              <%= flash[:error] %>
+            </div>
+          </div>
+          <br /><br /><br /><br />
           <% end %>
+
           <form action="/users/authenticate" class="form-signin">
             <p class="text-muted text-center btn-block btn btn-primary btn-rect">
               Enter your username and password
@@ -50,7 +58,7 @@
             <button class="btn text-muted text-center btn-danger" type="submit">Sign in</button>
           </form>
         </div>
-       
+
       </div>
 
 
