@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def logout
     session[:current_user_id] = nil
     flash[:notice] = "You have been logged out"
-    redirect_to :controller => "user", :action => "login" and return
+    redirect_to ("/login") and return
   end
 
   def authenticate
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     logged_in_user = User.authenticate(params[:username], params[:password])
     if logged_in_user
       session[:current_user_id] = user.id
-      redirect_to("/") and return
+      redirect_to("/admin") and return
     else
       flash[:error] = "Invalid username or password"
       redirect_to ("/login") and return
