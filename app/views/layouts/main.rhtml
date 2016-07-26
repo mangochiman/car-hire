@@ -107,11 +107,10 @@
     <div class="part1 span-8">
       <h2>Why choose us ?</h2>
       <ul>
-        <li>Sed diam voluptua</li>
-        <li>At vero eos et accusam</li>
-        <li>justo duo dolores et ea rebum</li>
-        <li>Stet clita kasd gubergren</li>
-        <li>rebum. Stet clita kasd</li></ul>
+        <% (@strengths.split(', ') rescue []).each do |strength| %>
+          <li><%=  strength %></li>
+        <% end %>
+      </ul>
     </div>
   </section>
 
