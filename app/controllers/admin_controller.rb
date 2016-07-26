@@ -2,6 +2,8 @@ require 'RMagick'
 include Magick
 
 class AdminController < ApplicationController
+  before_filter :authenticate_user
+  
   def home
     
   end
