@@ -1,0 +1,30 @@
+<script>
+  function cancelAction(){
+    window.location = "/admin/protection_package_details"
+  }
+</script>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="box">
+      <header>
+        <div class="icons"><i class="icon-th-large"></i></div>
+        <h5>Protection Package Details</h5>
+      </header>
+
+      <div id="cleditorDiv" class="body collapse in">
+        <div class="btn-toolbar"></div>
+        <form action="/admin/create_protection_package_details" method="POST">
+          <textarea id="cleditor" class="form-control" name="content"><%= @protection_package_details_page.content rescue '' %></textarea>
+
+          <div class="form-actions no-margin-bottom" id="cleditorForm">
+            <br />
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="reset" value="Cancel" onclick="cancelAction()" class="btn btn-danger" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

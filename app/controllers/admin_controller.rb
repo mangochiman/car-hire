@@ -194,5 +194,102 @@ class AdminController < ApplicationController
 
     redirect_to("/admin/company_description") and return
   end
-  
+
+  def damage_and_management_policy
+    @damage_and_management_policy_page = Page.find_by_page_type('damage_and_management_policy')
+    render :layout => "main"
+  end
+
+  def create_damage_and_management_policy
+    damage_and_management_policy_page = Page.find_by_page_type('damage_and_management_policy')
+
+    if damage_and_management_policy_page.blank?
+      damage_and_management_policy_page = Page.new()
+      damage_and_management_policy_page.page_type = 'damage_and_management_policy'
+    end
+
+    damage_and_management_policy_page.content = params[:content]
+    damage_and_management_policy_page.save
+
+    redirect_to("/admin/damage_and_management_policy") and return
+  end
+
+  def deposit_policy
+    @deposit_policy_page = Page.find_by_page_type('deposit_policy')
+    render :layout => "main"
+  end
+
+  def create_deposit_policy
+    deposit_policy_page = Page.find_by_page_type('deposit_policy')
+
+    if deposit_policy_page.blank?
+      deposit_policy_page = Page.new()
+      deposit_policy_page.page_type = 'deposit_policy'
+    end
+
+    deposit_policy_page.content = params[:content]
+    deposit_policy_page.save
+
+    redirect_to("/admin/deposit_policy") and return
+  end
+
+  def protection_package_details
+    @protection_package_details_page = Page.find_by_page_type('protection_package_details')
+    render :layout => "main"
+  end
+
+  def create_protection_package_details
+    protection_package_details_page = Page.find_by_page_type('protection_package_details')
+
+    if protection_package_details_page.blank?
+      protection_package_details_page = Page.new()
+      protection_package_details_page.page_type = 'protection_package_details'
+    end
+
+    protection_package_details_page.content = params[:content]
+    protection_package_details_page.save
+
+    redirect_to("/admin/protection_package_details") and return
+  end
+
+  def security_and_privacy_policy
+    @security_and_privacy_policy_page = Page.find_by_page_type('security_and_privacy_policy')
+    render :layout => "main"
+  end
+
+  def create_security_and_privacy_policy
+     security_and_privacy_policy_page = Page.find_by_page_type('security_and_privacy_policy')
+
+    if security_and_privacy_policy_page.blank?
+      security_and_privacy_policy_page = Page.new()
+      security_and_privacy_policy_page.page_type = 'security_and_privacy_policy'
+    end
+
+    security_and_privacy_policy_page.content = params[:content]
+    security_and_privacy_policy_page.save
+
+    redirect_to("/admin/security_and_privacy_policy") and return
+  end
+
+  def terms_and_conditions
+    @terms_and_conditions_page = Page.find_by_page_type('terms_and_conditions')
+    render :layout => "main"
+  end
+
+  def create_terms_and_conditions
+    terms_and_conditions_page = Page.find_by_page_type('terms_and_conditions')
+
+    if terms_and_conditions_page.blank?
+      terms_and_conditions_page = Page.new()
+      terms_and_conditions_page.page_type = 'terms_and_conditions'
+    end
+
+    terms_and_conditions_page.content = params[:content]
+    terms_and_conditions_page.save
+
+    redirect_to("/admin/terms_and_conditions") and return
+  end
+
+
+
 end

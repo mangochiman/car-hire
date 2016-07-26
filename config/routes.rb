@@ -10,6 +10,11 @@ ActionController::Routing::Routes.draw do |map|
   map.bookings '/bookings/:car_id', :controller => 'pages', :action => 'bookings'
   map.search_bookings '/search_bookings', :controller => 'pages', :action => 'search_bookings'
   map.edit_bookings '/edit_bookings', :controller => 'pages', :action => 'edit_bookings'
+  map.damage_and_management_policy '/damage_and_management_policy', :controller => 'pages', :action => 'damage_and_management_policy'
+  map.deposit_policy '/deposit_policy', :controller => 'pages', :action => 'deposit_policy'
+  map.protection_package_details '/protection_package_details', :controller => 'pages', :action => 'protection_package_details'
+  map.security_and_privacy_policy '/security_and_privacy_policy', :controller => 'pages', :action => 'security_and_privacy_policy'
+  map.terms_and_conditions '/terms_and_conditions', :controller => 'pages', :action => 'terms_and_conditions'
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action

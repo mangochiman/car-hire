@@ -153,4 +153,69 @@ class PagesController < ApplicationController
     redirect_to("/") and return
   end
 
+  def damage_and_management_policy
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
+    @company_description = Page.find_by_page_type('company_description').content rescue ''
+    @media = Car.all
+
+    @damage_and_management_policy_page = Page.find_by_page_type('damage_and_management_policy')
+    render :layout => "main"
+  end
+
+  def deposit_policy
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
+    @company_description = Page.find_by_page_type('company_description').content rescue ''
+    @media = Car.all
+
+    @deposit_policy_page = Page.find_by_page_type('deposit_policy')
+    render :layout => "main"
+  end
+
+  def protection_package_details
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
+    @company_description = Page.find_by_page_type('company_description').content rescue ''
+    @media = Car.all
+
+    @protection_package_details_page = Page.find_by_page_type('protection_package_details')
+    render :layout => "main"
+  end
+
+  def security_and_privacy_policy
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
+    @company_description = Page.find_by_page_type('company_description').content rescue ''
+    @media = Car.all
+
+    @security_and_privacy_policy_page = Page.find_by_page_type('security_and_privacy_policy')
+    render :layout => "main"
+  end
+
+  def terms_and_conditions
+    @email = Setting.find_by_key('email').value rescue ''
+    @office_phone = Setting.find_by_key('office_phone').value rescue ''
+    @postal_address = Setting.find_by_key('postal_address').value rescue ''
+    @strengths = Setting.find_by_key('strengths').value rescue ''
+    @fax = Setting.find_by_key('fax').value rescue ''
+    @company_description = Page.find_by_page_type('company_description').content rescue ''
+    @media = Car.all
+
+    @terms_and_conditions_page = Page.find_by_page_type('terms_and_conditions')
+    render :layout => "main"
+  end
+
 end
