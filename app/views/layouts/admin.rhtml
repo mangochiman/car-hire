@@ -67,9 +67,9 @@
           <ul class="nav navbar-top-links navbar-right">
 
             <!--TASK SECTION -->
-            <li class="dropdown">
+            <li class="dropdown" onclick="window.location='/admin'">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="label label-danger">5</span>   <i class="icon-tasks"></i>&nbsp; <i class="icon-chevron-down"></i>
+                <span class="label label-danger"><%= @bookings.count %></span>   <i class="icon-eye-open"></i>&nbsp;
               </a>
             </li>
 

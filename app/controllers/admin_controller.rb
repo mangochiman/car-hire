@@ -5,11 +5,12 @@ class AdminController < ApplicationController
   before_filter :authenticate_user
   
   def home
-    
+    @bookings = Booking.all
   end
 
   def our_services
     @our_services_page = Page.find_by_page_type('our_services')
+    @bookings = Booking.all
     render :layout => "admin"
   end
 
@@ -29,6 +30,7 @@ class AdminController < ApplicationController
 
   def our_mission
     @our_mission_page = Page.find_by_page_type('our_mission')
+    @bookings = Booking.all
     render :layout => "admin"
   end
 
@@ -48,6 +50,7 @@ class AdminController < ApplicationController
 
   def about_us
     @about_us_page = Page.find_by_page_type('about_us')
+    @bookings = Booking.all
     render :layout => "admin"
   end
 
@@ -67,6 +70,7 @@ class AdminController < ApplicationController
 
   def contact_us
     @contact_us_page = Page.find_by_page_type('contact_us')
+    @bookings = Booking.all
     render :layout => "admin"
   end
 
@@ -86,6 +90,7 @@ class AdminController < ApplicationController
 
   def gallery
     @media = Car.all
+    @bookings = Booking.all
   end
   
   def create_gallery
@@ -130,6 +135,7 @@ class AdminController < ApplicationController
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
     @strengths = Setting.find_by_key('strengths').value rescue ''
+    @bookings = Booking.all
     render :layout => "admin"
   end
 
@@ -180,6 +186,7 @@ class AdminController < ApplicationController
 
   def company_description
     @company_description = Page.find_by_page_type('company_description')
+    @bookings = Booking.all
   end
 
   def create_company_description
@@ -198,6 +205,7 @@ class AdminController < ApplicationController
 
   def damage_and_management_policy
     @damage_and_management_policy_page = Page.find_by_page_type('damage_and_management_policy')
+    @bookings = Booking.all
   end
 
   def create_damage_and_management_policy
@@ -216,6 +224,7 @@ class AdminController < ApplicationController
 
   def deposit_policy
     @deposit_policy_page = Page.find_by_page_type('deposit_policy')
+    @bookings = Booking.all
   end
 
   def create_deposit_policy
@@ -234,6 +243,7 @@ class AdminController < ApplicationController
 
   def protection_package_details
     @protection_package_details_page = Page.find_by_page_type('protection_package_details')
+    @bookings = Booking.all
   end
 
   def create_protection_package_details
@@ -252,6 +262,7 @@ class AdminController < ApplicationController
 
   def security_and_privacy_policy
     @security_and_privacy_policy_page = Page.find_by_page_type('security_and_privacy_policy')
+    @bookings = Booking.all
   end
 
   def create_security_and_privacy_policy
@@ -270,6 +281,7 @@ class AdminController < ApplicationController
 
   def terms_and_conditions
     @terms_and_conditions_page = Page.find_by_page_type('terms_and_conditions')
+    @bookings = Booking.all
   end
 
   def create_terms_and_conditions
