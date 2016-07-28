@@ -307,4 +307,44 @@ class AdminController < ApplicationController
     redirect_to("/admin") and return
   end
 
+  def change_password
+    @bookings = Booking.all
+  end
+
+  def change_username
+    @bookings = Booking.all
+  end
+
+  def update_password
+    user = User.find(session[:current_user_id])
+    old_password = params[:old_password]
+    new_password = params[:new_password]
+    password_confirm = params[:repeat_password]
+
+    check_old_password = User.authenticate(user.username, old_password)
+    errors = []
+    errors << "Old password is not correct" if !check_old_password
+    errors << "Password Mismatch" if (new_password != password_confirm)
+
+    unless errors.blank?
+      flash[:notice] = errors.join(', ')
+      redirect_to("/admin/change_password") and return
+    end
+
+    user.password = User.encrypt(new_password, user.salt)
+    user.save
+
+    flash[:notice] = "You have successfully changed your password"
+    redirect_to("/admin") and return
+  end
+
+  def update_username
+    user = User.find(session[:current_user_id])
+    user.username = params[:username]
+    user.save
+
+    flash[:notice] = "You have successfully changed your username"
+    redirect_to("/admin") and return
+  end
+  
 end
