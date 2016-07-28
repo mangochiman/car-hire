@@ -312,6 +312,7 @@ class AdminController < ApplicationController
   end
 
   def change_username
+    @user = User.find(session[:current_user_id])
     @bookings = Booking.all
   end
 
@@ -327,7 +328,7 @@ class AdminController < ApplicationController
     errors << "Password Mismatch" if (new_password != password_confirm)
 
     unless errors.blank?
-      flash[:notice] = errors.join(', ')
+      flash[:error] = errors.join(', ')
       redirect_to("/admin/change_password") and return
     end
 

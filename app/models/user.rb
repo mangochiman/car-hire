@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   set_primary_key :user_id
 
 
-  before_save :set_password
+  before_create :set_password
 
   cattr_accessor :current_user
 

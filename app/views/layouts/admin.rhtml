@@ -202,6 +202,20 @@
       <div id="content">
 
         <div class="inner" style="min-height:1200px;">
+          <% if flash[:notice] %>
+          <br />
+            <div class="alert alert-success">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+
+          <% if flash[:error] %>
+          <br />
+            <div class="alert alert-warning">
+              <%= flash[:error] %>
+            </div>
+          <% end %>
+
           <%= yield %>
         </div>
 
