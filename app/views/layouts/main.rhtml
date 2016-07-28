@@ -167,12 +167,57 @@
   </footer>
   <script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
   <script type="text/javascript" src="/javascripts/jquery.nivo.slider.js"></script>
-
+  <script type="text/javascript" src="/javascripts/remodal.js"></script>
   <%= javascript_include_tag("zebra_datepicker") %>
   <script type="text/javascript">
     jQuery('.date-picker').Zebra_DatePicker({
       //view : 'years',
       //direction: ['<%=  (Date.today.beginning_of_year).strftime("%Y-%m-%d") %>', '<%=  (Date.today.end_of_year).strftime("%Y-%m-%d") %>']
+    });
+  </script>
+
+
+  <script>
+    jQuery(document).on('opening', '.remodal', function () {
+      console.log('opening');
+    });
+
+    jQuery(document).on('opened', '.remodal', function () {
+      console.log('opened');
+    });
+
+    jQuery(document).on('closing', '.remodal', function (e) {
+      console.log('closing' + (e.reason ? ', reason: ' + e.reason : ''));
+    });
+
+    jQuery(document).on('closed', '.remodal', function (e) {
+      console.log('closed' + (e.reason ? ', reason: ' + e.reason : ''));
+    });
+
+    jQuery(document).on('confirmation', '.remodal', function () {
+      console.log('confirmation');
+      document.getElementById('cancelBookingForm').submit();
+    });
+
+    jQuery(document).on('cancellation', '.remodal', function () {
+      console.log('cancellation');
+    });
+
+    //  Usage:
+    //  $(function() {
+    //
+    //    // In this case the initialization function returns the already created instance
+    //    var inst = $('[data-remodal-id=modal]').remodal();
+    //
+    //    inst.open();
+    //    inst.close();
+    //    inst.getState();
+    //    inst.destroy();
+    //  });
+
+    //  The second way to initialize:
+    $('[data-remodal-id=modal2]').remodal({
+      modifier: 'with-red-theme'
     });
   </script>
 </body>

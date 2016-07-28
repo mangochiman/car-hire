@@ -218,4 +218,13 @@ class PagesController < ApplicationController
     render :layout => "main"
   end
 
+  def cancel_booking
+    booking = Booking.find(params[:booking_id])
+    booking.voided = true
+    booking.voided_by = booking.email
+    booking.save
+
+    redirect_to("/search_bookings") and return
+  end
+  
 end

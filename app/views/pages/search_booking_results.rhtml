@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="/stylesheets/remodal.css"></link>
+<link rel="stylesheet" href="/stylesheets/remodal-default-theme.css"></link>
+
 <script type="text/javascript">
   function editBooking(bookingID){
     bookingIDinput = document.getElementById('booking_id');
@@ -5,6 +8,12 @@
 
     editBookingForm = document.getElementById('editBookingForm');
     editBookingForm.submit();
+  }
+
+  var currentbookingID;
+  function updateSelectedBookingID(bookingID){
+    currentbookingID = bookingID;
+    document.getElementById('cancelBookingInput').value = currentbookingID;
   }
 </script>
 
@@ -62,6 +71,19 @@
     background: #8B3E2F;
     color: white;
   }
+
+  .remodal-bg.with-red-theme.remodal-is-opening,
+    .remodal-bg.with-red-theme.remodal-is-opened {
+      filter: none;
+    }
+
+    .remodal-overlay.with-red-theme {
+      background-color: #f44336;
+    }
+
+    .remodal.with-red-theme {
+      background: #fff;
+    }
 </style>
 <br />
 <span class="clearfix"></span>
@@ -94,7 +116,7 @@
             <td><%= result.phone %></td>
             <td><%= result.email %></td>
             <td><button class="button" onclick="editBooking('<%= result.bookings_id %>')">Edit</button></td>
-            <td><button class="button danger-btn">Cancel</button></td>
+            <td><button onmousedown="updateSelectedBookingID('<%=  result.id %>')"data-remodal-target="modal" class="button danger-btn">Cancel</button></td>
           </tr>
         <% end %>
       </tbody>
@@ -109,5 +131,25 @@
 <span class="clearfix"></span>
 
 <hr />
+<form id="cancelBookingForm" method="POST" action="/pages/cancel_booking">
+  <input type="hidden" value="" id="cancelBookingInput" name="booking_id"></input>
+</form>
 
 <span class="clearfix"></span>
+
+
+<div class="remodal" data-remodal-id="modal" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+  <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+  <div>
+    <h2 id="modal1Title">Cancel Booking</h2>
+    <p id="modal1Desc">
+     You are about to cancel the selected booking. Are you really sure?
+    </p>
+  </div>
+  <br>
+  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+</div>
+
+
+<!-- Events -->
