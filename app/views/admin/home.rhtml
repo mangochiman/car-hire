@@ -31,7 +31,7 @@
                   <td><%= booking.phone %></td>
                   <td><%= booking.start_date %></td>
                   <td><%= booking.end_date %></td>
-                  <td><button class="btn btn-danger btn-block">
+                  <td><button class="btn btn-danger btn-block" onclick="confirmArchiveBooking('<%= booking.id %>');">
                       <i class="icon-remove icon-white"></i> Archive</button>
                   </td>
                 </tr>
@@ -44,3 +44,40 @@
   </div>
 
 </div>
+
+
+<!--CONFIRMATION POPUP BEGIN -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">
+          Archive Booking
+        </h4>
+      </div>
+      <div class="modal-body">
+        <span style="text-align:center;">You are about to archive the selected booking.
+          Are you really very sure?</span>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="archiveBooking()" data-dismiss="modal">Okay</button>
+          <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--CONFIRMATION POPUP END -->
+<script type="text/javascript">
+  var selectedBookingID;
+
+  function archiveBooking(){
+    window.location = "/admin/archive_booking?booking_id=" + selectedBookingID;
+  }
+
+  function confirmArchiveBooking(bookingID){
+    selectedBookingID = bookingID
+    jQuery('#myModal').modal('show')
+  }
+
+</script>

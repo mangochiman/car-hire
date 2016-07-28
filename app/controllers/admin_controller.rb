@@ -266,7 +266,7 @@ class AdminController < ApplicationController
   end
 
   def create_security_and_privacy_policy
-     security_and_privacy_policy_page = Page.find_by_page_type('security_and_privacy_policy')
+    security_and_privacy_policy_page = Page.find_by_page_type('security_and_privacy_policy')
 
     if security_and_privacy_policy_page.blank?
       security_and_privacy_policy_page = Page.new()
@@ -298,6 +298,13 @@ class AdminController < ApplicationController
     redirect_to("/admin/terms_and_conditions") and return
   end
 
+  def archive_booking
+    booking = Booking.find(params[:booking_id])
+    booking.voided = true
+    booking.voided_by = User.find(session[:current_user_id]).username
+    booking.save
 
+    redirect_to("/admin") and return
+  end
 
 end
