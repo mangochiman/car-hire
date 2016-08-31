@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @title = "Bantu Motors - Home"
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
@@ -11,6 +12,7 @@ class PagesController < ApplicationController
   end
 
   def our_services
+    @title = "Bantu Motors- Our Services"
     @our_services_page = Page.find_by_page_type('our_services')
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
@@ -23,6 +25,7 @@ class PagesController < ApplicationController
   end
 
   def about_us
+    @title = "Bantu Motors- About Us"
     @about_us_page = Page.find_by_page_type('about_us')
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
@@ -35,6 +38,7 @@ class PagesController < ApplicationController
   end
 
   def our_mission
+    @title = "Bantu Motors- Our Mission"
     @our_mission_page = Page.find_by_page_type('our_mission')
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
@@ -47,6 +51,7 @@ class PagesController < ApplicationController
   end
 
   def gallery
+    @title = "Bantu Motors- Gallery"
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
@@ -58,6 +63,7 @@ class PagesController < ApplicationController
   end
 
   def contact_us
+    @title = "Bantu Motors- Contact Us"
     @contact_us_page = Page.find_by_page_type('contact_us')
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
@@ -70,6 +76,7 @@ class PagesController < ApplicationController
   end
 
   def bookings
+    @title = "Bantu Motors- Bookings"
     @selected_car = Car.find(params[:car_id])
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
@@ -97,6 +104,7 @@ class PagesController < ApplicationController
   end
 
   def search_bookings
+    @title = "Bantu Motors- Search"
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
@@ -108,6 +116,7 @@ class PagesController < ApplicationController
   end
 
   def search_booking_results
+    @title = "Bantu Motors- Search Results"
     email = params[:email]
     secret_code = params[:secret_code]
 
@@ -126,6 +135,7 @@ class PagesController < ApplicationController
   end
 
   def edit_bookings
+    @title = "Bantu Motors- Edit Bookings"
     @booking_id = params[:booking_id]
     @booking = Booking.find(params[:booking_id])
     @selected_car = Booking.find(params[:booking_id]).car
@@ -154,6 +164,7 @@ class PagesController < ApplicationController
   end
 
   def damage_and_management_policy
+    @title = "Bantu Motors- Damage and Management Policy"
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
@@ -167,6 +178,7 @@ class PagesController < ApplicationController
   end
 
   def deposit_policy
+    @title = "Bantu Motors- Deposit Policy"
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
@@ -180,6 +192,7 @@ class PagesController < ApplicationController
   end
 
   def protection_package_details
+    @title = "Bantu Motors- Protection Package Details"
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
@@ -193,6 +206,7 @@ class PagesController < ApplicationController
   end
 
   def security_and_privacy_policy
+    @title = "Bantu Motors- Security and Privacy Policy"
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
@@ -206,6 +220,7 @@ class PagesController < ApplicationController
   end
 
   def terms_and_conditions
+    @title = "Bantu Motors- Terms and Conditions"
     @email = Setting.find_by_key('email').value rescue ''
     @office_phone = Setting.find_by_key('office_phone').value rescue ''
     @postal_address = Setting.find_by_key('postal_address').value rescue ''
